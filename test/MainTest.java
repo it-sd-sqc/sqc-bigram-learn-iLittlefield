@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import edu.cvtc.bigram.*;
 
 @SuppressWarnings({"SpellCheckingInspection"})
+
 class MainTest {
   @Test
   void createConnection() {
@@ -61,4 +62,19 @@ class MainTest {
   }
 
   // TODO: Create your test(s) below. /////////////////////////////////////////
+  @Test
+void whiteSpaceCheck() {
+    assertAll(
+            () -> {
+              Connection db = Main.createConnection();
+              String src = " tt";
+              Main.createBigrams(db, src); //Error occurs because " tt" is in the database when
+             assertTrue(Main.getId(db, src) == -1); //the whitespace should be stripped off.
+         }
+   );
+
+
+
 }
+}
+
