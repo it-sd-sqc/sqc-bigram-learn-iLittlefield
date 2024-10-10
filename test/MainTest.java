@@ -67,14 +67,13 @@ void whiteSpaceCheck() {
     assertAll(
             () -> {
               Connection db = Main.createConnection();
-              String src = " tt";
-              Main.createBigrams(db, src); //Error occurs because " tt" is in the database when
+              String src = "t t";
+              Main.createBigrams(db, src); //Error occurs because "t t" is in the database when
              assertTrue(Main.getId(db, src) == -1); //the whitespace should be stripped off.
+
          }
    );
-
-
-
 }
+
 }
 
